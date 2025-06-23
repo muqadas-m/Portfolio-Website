@@ -16,5 +16,8 @@ jobs:
       - name: Lint HTML Files with HTMLHint
         run: npx htmlhint "**/*.html"
 
+      - name: Install Stylelint v15
+        run: npm install stylelint@15.11.0
+
       - name: Lint CSS Files with Stylelint
         run: npx stylelint "**/*.css"
