@@ -1,0 +1,30 @@
+name: wf-ci-develop
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  linting-develop-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint HTML Files with HTMLHint
+        run: npx htmlhint "**/*.html"
+        
+      - name: Lint CSS Files with Stylelint
+        run: npx stylelint "**/*.css"
