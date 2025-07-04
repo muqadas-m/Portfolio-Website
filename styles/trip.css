@@ -1,0 +1,37 @@
+.planner-intro, .planner-steps, .tips {
+  margin: 2em 0;
+}
+
+.planner-intro {
+  text-align: center;
+}
+
+.planner-steps .steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.step-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  max-width: 250px;
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.step-card h4 {
+  margin-bottom: 0.5em;
+  color: #005f73;
+}
+
+.tips ul {
+  list-style-type: disc;
+  padding-left: 2em;
+  max-width: 700px;
+  margin: auto;
+}
