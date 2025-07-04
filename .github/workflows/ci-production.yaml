@@ -1,0 +1,27 @@
+name: wf-ci-production
+
+on:
+  pull_request:
+    branches:
+      - production    
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  linting-job-production:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: "${{ github.head_ref }}"  # Use the branch from PR source, not target
+
+      - name: Lint HTML Files With HTMLHint
+        run: npx htmlhint "**/*.html"
+
+      - name: Lint CSS Files With Stylelint
+        run: npx stylelint "**/*.css"
+
+      - name: Test Building With Parcel
+        run: npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
